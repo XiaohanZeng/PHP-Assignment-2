@@ -23,7 +23,7 @@ function init()
 	$all = $mysqli->prepare("SELECT * FROM $table");//prepared statment
 	$all->execute();// run the prepared statment,all save object
 	$res = $all->get_result();
-	buldTable($res);
+	buildTable($res);
 }
 
 	function buildTable($res)
