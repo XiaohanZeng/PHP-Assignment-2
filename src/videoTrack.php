@@ -26,29 +26,37 @@ function init()
 	buildTable($res);
 }
 
-	function buildTable($res)
+function buildTable($res)
+{
+	echo '<table>';
+	echo '<tr>';
+	echo '<td> ID </td>';
+	echo '<td> Name </td>';
+	echo '<td> Category </td>';
+	echo '<td> Length </td>';
+	echo '<td> Rent </td>';
+	echo '</tr>';
+	while($row = $res->fetch_assoc()) //get it one by one
 	{
-		echo '<table>';
-		echo '<tr>';
-		echo '<td> ID </td>';
-		echo '<td> Name </td>';
-		echo '<td> Category </td>';
-		echo '<td> Length </td>';
-		echo '<td> Rent </td>';
+		echo '<tr id = "'.$row['ID'].'">'; 
+		echo '<td>'.$row['ID'].'</td>';
+		echo '<td>'.$row['Name'].'</td>';
+		echo '<td>'.$row['Category'].'</td>';
+		echo '<td>'.$row['Length'].'</td>';
+		echo '<td>'.$row['Rent'].'</td>';
 		echo '</tr>';
-		while($row = $res->fetch_assoc()) //get it one by one
-		{
-			echo '<tr id = "'.$row['ID'].'">'; 
-			echo '<td>'.$row['ID'].'</td>';
-			echo '<td>'.$row['Name'].'</td>';
-			echo '<td>'.$row['Category'].'</td>';
-			echo '<td>'.$row['Length'].'</td>';
-			echo '<td>'.$row['Rent'].'</td>';
-			echo '</tr>';
-		
-		}
-		echo '</table>';
+	
 	}
+	echo '</table>';
+}
+
+function deleteAll($res)
+{
+	$all = $mysqli->prepare("DELETE FROM $table");
+	$all->execute();
+	$res = $all->get_result();
+	init();
+}
 
 if(isset($_REQUEST['action']))
 {
@@ -56,6 +64,10 @@ if(isset($_REQUEST['action']))
 	if($action == 'init')
 	{
 		init();
+	}
+	if($action == 'deleteAll')
+	{
+		deleteAll();
 	}
 }
 
