@@ -65,7 +65,7 @@ function addNew()
 	$name = $_GET['Name'];
 	$category = $_GET['Category'];
 	$length = $_GET['Length'];
-	$all = $mysqli->prepare("INSERT INTO $table VALUES($name,$category,$length)");
+	$all = $mysqli->prepare("INSERT INTO $table (Name, Category, Length) VALUES('$name','$category',$length)");
 	$all->execute();
 }
 
