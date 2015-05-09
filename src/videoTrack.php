@@ -7,7 +7,7 @@ $dbhost = 'oniddb.cws.oregonstate.edu';
 $dbname = 'zengx-db';
 $dbuser = 'zengx-db';
 $dbpass = 'qWXPWG1wbhOLVCAG';
-$table = 'videoTrack'
+$table = 'videoTrack';
 
 $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 if($mysqli->connect_error)
