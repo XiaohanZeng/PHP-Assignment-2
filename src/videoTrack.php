@@ -21,9 +21,9 @@ function init()
 {
 	global $mysqli,$table;
 	$all = $mysqli->prepare("SELECT * FROM $table");//prepared statment
-	$all->execute;// run the prepared statment,all save object
+	$all->execute();// run the prepared statment,all save object
 	$res = $all->get_result();
-	buldTabe($res);
+	buldTable($res);
 }
 
 	function buildTable($res)
