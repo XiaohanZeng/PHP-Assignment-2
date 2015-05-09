@@ -17,36 +17,37 @@ if($mysqli->connect_error)
 
 
 
-/*function init()
+function init()
 {
 	global $mysqli,$table;
 	$all = $mysqli->prepare("SELECT * FROM $table");//prepared statment
-	$all->execute// run the prepared statment,all save object
+	$all->execute;// run the prepared statment,all save object
 	$res = $all->get_result();
-	
-	
+	buldTabe($res);
+}
+
 	function buildTable($res)
 	{
-	echo '<table>';
-	echo '<tr id ="'>';
-	echo '<td> Id <td>';
-	echo '<td> Name <td>';
-	echo '<td> Category <td>';
-	echo '<td> Length <td>';
-	echo '<td> Rent <td>';
-	echo '</tr>';
-	while($row = $res->fetch_assoc()) //get it one by one
-	{
-		echo '<tr>'; //echo '<tr id = "'.$row['Id'].'">'; ???
-		echo '<td>'.$row['Id'].'<\td>';
-		echo '<td>'.$row['Name'].'<\td>';
-		echo '<td>'.$row['Category'].'<\td>';
-		echo '<td>'.$row['Length'].'<\td>';
-		echo '<td>'.$row['Rent'].'<\td>';
+		echo '<table>';
+		echo '<tr>';
+		echo '<td> Id <td>';
+		echo '<td> Name <td>';
+		echo '<td> Category <td>';
+		echo '<td> Length <td>';
+		echo '<td> Rent <td>';
 		echo '</tr>';
+		while($row = $res->fetch_assoc()) //get it one by one
+		{
+			echo '<tr id = "'.$row['Id'].'">'; 
+			echo '<td>'.$row['Id'].'<\td>';
+			echo '<td>'.$row['Name'].'<\td>';
+			echo '<td>'.$row['Category'].'<\td>';
+			echo '<td>'.$row['Length'].'<\td>';
+			echo '<td>'.$row['Rent'].'<\td>';
+			echo '</tr>';
+		
+		}
 	}
-	}
-}*/
 
 if(isset($_REQUEST['action']))
 {
