@@ -7,9 +7,9 @@ window.onload = function()
         makeRequest('action=deleteAll');
     }
     document.getElementById("addNew").onclick = function () {
-        var newName = document.forms['addForm'].elements['Name'];
-        var newCategory = document.forms['addForm'].elements['Category'];
-        var newLength = document.forms['addForm'].elements['Length'];
+        var newName = document.getElementById('addForm').elements['Name'];
+        var newCategory = document.getElementById('addForm').elements['Category'];
+        var newLength = document.getElementById('addForm').elements['Length'];
         makeRequest('action=addNew&Name='+newName+'&Category='+newCategory+'&Length='+newLength);
     }
 }
