@@ -50,8 +50,9 @@ function buildTable($res)
 	echo '</table>';
 }
 
-function deleteAll($res)
+function deleteAll()
 {
+	
 	$all = $mysqli->prepare("DELETE FROM $table");
 	$all->execute();
 	$res = $all->get_result();
