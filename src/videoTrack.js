@@ -4,6 +4,10 @@ window.onload = function()
     makeRequest('action=init');
 
 }
+document.getElementById('deleteAll').onclick = function()
+{
+    makeRequest('action=deleteAll');
+}
 
 /*Dletebutton.onclick = function
 {
@@ -36,7 +40,7 @@ function makeRequest(statement)
     xmlhttp.open("GET",'videoTrack.php?' + statement,true);
     xmlhttp.send();
 }
-   /* if(statement == 'action = add')
+  /* if(statement == 'action = add')
     {
         var elem = document.getElementById('videoTrack');
         statement += '&Name=' +elem.elements['Name'].value;
@@ -48,5 +52,5 @@ function makeRequest(statement)
     var filterBy = 'filterBy=' + localStorage.getItem('filterBy');
     var sortBy = 'sortBy=' + localStorage.getItem('sortBy');
     statement += '&' + filter + '&' + filterBy + '&' + sortBy;
-    */    
+    */ 
     
