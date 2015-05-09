@@ -2,7 +2,7 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
-
+/*
 $dbhost = 'oniddb.cws.oregonstate.edu';
 $dbname = 'zengx-db';
 $dbuser = 'zengx-db';
@@ -14,7 +14,7 @@ if($mysqli->connect_error)
 {
 	echo "Failed to connect to MySQL:(".$mysqli->connect_error.")".$mysqli->connect_error;
 }
-
+*/
 /*$mysql_handle = mysql_connect($dbhost, $dbuser, $dbpass)
     or die("Error connecting to database server");
 
