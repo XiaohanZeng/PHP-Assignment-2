@@ -52,7 +52,7 @@ function buildTable($res)
 
 function deleteAll()
 {
-	
+	global $mysqli,$table;
 	$all = $mysqli->prepare("DELETE FROM $table");
 	$all->execute();
 	$res = $all->get_result();
