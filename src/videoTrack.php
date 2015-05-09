@@ -59,6 +59,16 @@ function deleteAll()
 	init();
 }
 
+function addNew()
+{
+	global $mysqli,$table;
+	$name = $_GET['Name'];
+	$category = $_GET['Category'];
+	$length = $_GET['Length'];
+	$all = $mysqli->prepare("INSERT INTO $table VALUES($name,$category,$length)");
+	$all->execute();
+}
+
 if(isset($_REQUEST['action']))
 {
 	$action = $_REQUEST['action'];
@@ -69,6 +79,10 @@ if(isset($_REQUEST['action']))
 	if($action == 'deleteAll')
 	{
 		deleteAll();
+	}
+	if($action == 'addNew')
+	{
+		addNew();
 	}
 }
 

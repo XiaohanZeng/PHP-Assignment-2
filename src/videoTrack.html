@@ -8,8 +8,17 @@
 </head>
 <body>
     <div id="videos">test</div>
+    <form action="http://web.engr.oregonstate.edu/~zengx/cs290/week6/src/videoTrack.php" method="get">
+        Add new video: <br>
+        Name: <input type="text" name="Name"><br>
+        Category: <input type="text" name="Category"><br>
+        Length: <input type="int" name="Length"><br>   
+        <input type="hidden" name="action" value="addNew">
+        <input type="submit" value="Add">
+    </form>
     <div id="videoTrack"></div>
     <button type="button" id="deleteAll">DELETE ALL</button>
-    <!--<button type="button" c> delete</button>-->
+    
+        <!--<button type="button" c> delete</button>-->
 </body>
 </html>
