@@ -9,11 +9,11 @@ $dbuser = 'zengx-db';
 $dbpass = 'qWXPWG1wbhOLVCAG';
 $table = 'videoTrack'
 
-$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $table);
-if($mysqli->connect_error)
-{
-	echo "Failed to connect to MySQL:(".$mysqli->connect_error.")".$mysqli->connect_error;
-}
+$mysqli = mysqli_connect($dbhost, $dbuser, $dbpass, $table);
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
 
 /*function init()
 {
