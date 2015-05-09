@@ -65,10 +65,10 @@ if(isset($_REQUEST['action']))
 	{
 		init();
 	}
-	/*if($action == 'deleteAll')
+	if($action == 'deleteAll')
 	{
 		deleteAll();
-	}*/
+	}
 }
 
 ?>
