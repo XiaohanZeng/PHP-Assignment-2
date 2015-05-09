@@ -2,12 +2,13 @@
 window.onload = function()
 {
     makeRequest('action=init');
+    document.getElementById("deleteAll").onclick = function ()
+    {
+        makeRequest('action=deleteAll');
+    }
 
 }
-document.getElementById("deleteAll").onclick = function ()
-{
-    makeRequest('action=deleteAll');
-}
+
 
 /*Dletebutton.onclick = function
 {
