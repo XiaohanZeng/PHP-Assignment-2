@@ -2,20 +2,20 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
-/*
+
 $dbhost = 'oniddb.cws.oregonstate.edu';
 $dbname = 'zengx-db';
 $dbuser = 'zengx-db';
 $dbpass = 'qWXPWG1wbhOLVCAG';
 $table = 'videoTrack'
 
-$mysqli = new mysqli($host, $user, $pw, $db);
+$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $table);
 if($mysqli->connect_error)
 {
 	echo "Failed to connect to MySQL:(".$mysqli->connect_error.")".$mysqli->connect_error;
 }
-*/
-/*$mysql_handle = mysql_connect($dbhost, $dbuser, $dbpass)
+
+$mysql_handle = mysql_connect($dbhost, $dbuser, $dbpass)
     or die("Error connecting to database server");
 
 mysql_select_db($dbname, $mysql_handle)
@@ -23,9 +23,9 @@ mysql_select_db($dbname, $mysql_handle)
 
 echo 'Successfully connected to database!';
 
-mysql_close($mysql_handle);*/
-/*
-function init()
+mysql_close($mysql_handle);
+
+/*function init()
 {
 	global $mysqli,$table;
 	$all = $mysqli->prepare("SELECT * FROM $table");//prepared statment
@@ -36,7 +36,7 @@ function init()
 	function buildTable($res)
 	{
 	echo '<table>';
-	echo '<tr>';
+	echo '<tr id ="'>';
 	echo '<td> Id <td>';
 	echo '<td> Name <td>';
 	echo '<td> Category <td>';
@@ -54,14 +54,14 @@ function init()
 		echo '</tr>';
 	}
 	}
-}
-*/
+}*/
+
 if(isset($_REQUEST['action']))
 {
 	$action = $_REQUEST['action'];
 	if($action == 'init')
 	{
-		echo 'hello world';
+		init();
 	}
 }
 
