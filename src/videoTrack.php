@@ -24,7 +24,7 @@ mysql_select_db($dbname, $mysql_handle)
 echo 'Successfully connected to database!';
 
 mysql_close($mysql_handle);*/
-
+/*
 function init()
 {
 	global $mysqli,$table;
@@ -55,7 +55,7 @@ function init()
 	}
 	}
 }
-
+*/
 if(isset($_REQUEST['action']))
 {
 	$action = $_REQUEST['action'];
