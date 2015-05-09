@@ -4,7 +4,7 @@ window.onload = function()
     makeRequest('action=init');
 
 }
-document.getElementById('deleteAll').onclick = function()
+document.getElementById("deleteAll").onclick = function ()
 {
     makeRequest('action=deleteAll');
 }
