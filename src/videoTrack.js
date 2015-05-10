@@ -39,7 +39,7 @@ window.onload = function()
             {
                 errorMessage4 = "not unique name";
             }
-            if (newName.length <0) {
+            if (newName.length<=0) {
                 errorMessage5 = "name is a required field";
             }
             if (parseInt(newLength) < 0)
