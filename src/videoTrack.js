@@ -10,7 +10,14 @@ window.onload = function()
         var newName = document.getElementById('addForm').elements['Name'].value;
         var newCategory = document.getElementById('addForm').elements['Category'].value;
         var newLength = document.getElementById('addForm').elements['Length'].value;
-        makeRequest('action=addNew&Name='+newName+'&Category='+newCategory+'&Length='+newLength);
+        if (!isNaN(newLength) && newName.length < 255 && newCategory.length < 255)
+        {
+            makeRequest('action=addNew&Name=' + newName + '&Category=' + newCategory + '&Length=' + newLength);
+        }
+        else
+        {
+            window.alert("invalid input.");
+        }
     }
 }
 
