@@ -97,9 +97,7 @@ function changeRent()
 	global $mysqli,$table;
 	$changeRentID =$_GET['id'];
 	$status =$_GET['Rent'];
-	$all = $mysqli->prepare("UPDATE $table
-SET Rent = $status
-WHERE ID=$changeRentID;");
+	$all = $mysqli->prepare("UPDATE $table SET Rent=$status WHERE ID=$changeRentID;");
 	$all->execute();
 	init();
 	
