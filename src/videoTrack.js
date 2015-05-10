@@ -16,9 +16,9 @@ window.onload = function()
         }
         else
         {
-            var errorMessage1;
-            var errorMessage2;
-            var errorMessage3;
+            var errorMessage1 = "";
+            var errorMessage2 = "";
+            var errorMessage3 = "";
             if (isNaN(newLength) || parseInt(newLength) <= 0)
             {
                 errorMessage1 = "invalid length input"
