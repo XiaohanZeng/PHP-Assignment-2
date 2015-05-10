@@ -52,7 +52,7 @@ function buildTable($res)
 		{
 			echo '<td>check out</td>';
 		}
-		echo '<td><button type="button" id="'.$row['ID'].'">DELETE</button></td>';
+		echo '<td><button type="button" id="'.$row['ID'].'" onclick="deleteRow(this.id)">DELETE</button></td>';
 		echo '</tr>';
 	
 	}
@@ -79,6 +79,15 @@ function addNew()
 	init();
 }
 
+function deleteOne()
+{
+	global $mysqli,$table;
+	$deleteID =$_GET['id'];
+	$all = $mysqli->prepare("DELETE FROM $table WHERE ID=$deleteID");
+	$all->execute();
+	init();
+}
+
 if(isset($_REQUEST['action']))
 {
 	$action = $_REQUEST['action'];
@@ -93,6 +102,10 @@ if(isset($_REQUEST['action']))
 	if($action == 'addNew')
 	{
 		addNew();
+	}
+	if($action == 'deleteOne')
+	{
+		deleteOne();
 	}
 }
 

@@ -6,7 +6,8 @@ window.onload = function()
     {
         makeRequest('action=deleteAll');
     }
-    document.getElementById("addNew").onclick = function () {
+    document.getElementById("addNew").onclick = function ()
+    {
         var newName = document.getElementById('addForm').elements['Name'].value;
         var newCategory = document.getElementById('addForm').elements['Category'].value;
         var newLength = document.getElementById('addForm').elements['Length'].value;
@@ -58,6 +59,11 @@ function checkUniqueName(newName)
             return false;
     }
     return true;
+}
+function deleteRow(clicked_id)
+{
+
+    makeRequest('action=deleteOne&id='+clicked_id);
 }
 function makeRequest(statement)
 {
