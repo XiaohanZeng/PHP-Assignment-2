@@ -35,6 +35,7 @@ function buildTable($res)
 	echo '<td> Category </td>';
 	echo '<td> Length </td>';
 	echo '<td> Rent </td>';
+	echo '<td>  </td>';
 	echo '</tr>';
 	while($row = $res->fetch_assoc()) //get it one by one
 	{
@@ -51,7 +52,7 @@ function buildTable($res)
 		{
 			echo '<td>check out</td>';
 		}
-		echo '<button type="button" id="'.$row['ID'].'">DELETE</button>';
+		echo '<td><button type="button" id="'.$row['ID'].'">DELETE</button></td>';
 		echo '</tr>';
 	
 	}
