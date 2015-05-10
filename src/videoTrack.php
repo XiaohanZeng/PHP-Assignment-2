@@ -55,7 +55,7 @@ function buildTable($res)
 			$status = "check in";
 			echo '<td>check out</td>';
 		}
-		echo '<td><button type="button" onclick="deleteRow(this.parentNode.id)">DELETE</button></td>';
+		echo '<td><button type="button" onclick="deleteRow(this.parentNode.parentNode.id)">DELETE</button></td>';
 		echo '<td><button type="button" class=changeRent onclick="changeRent(this)">'.$status.'</button></td>';
 		echo '</tr>';
 	

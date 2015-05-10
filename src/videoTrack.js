@@ -71,11 +71,11 @@ function changeRent(node)
     if (status == "check out")
     {
 
-        makeRequest('action=change&id=' + node.parentNode.id + '&Rent=1');
+        makeRequest('action=change&id=' + node.parentNode.parentNode.id + '&Rent=1');
     }
     else
     {      
-        makeRequest('action=change&id=' + node.parentNode.id + '&Rent=0');
+        makeRequest('action=change&id=' + node.parentNode.parentNode.id + '&Rent=0');
     }
 }
 function makeRequest(statement)
