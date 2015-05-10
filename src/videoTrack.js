@@ -11,7 +11,7 @@ window.onload = function()
         var newName = document.getElementById('addForm').elements['Name'].value;
         var newCategory = document.getElementById('addForm').elements['Category'].value;
         var newLength = document.getElementById('addForm').elements['Length'].value;
-        if (!isNaN(newLength) && parseInt(newLength) >= 0 && newName.length < 255 &&newName.length > 0 && newCategory.length < 255 && newCategory.length==0 && checkUniqueName(newName) )
+        if (!isNaN(newLength) && parseInt(newLength) >= 0 && newName.length < 255 &&newName.length > 0 && newCategory.length < 255 && newCategory.length>=0 && checkUniqueName(newName) )
         {
             makeRequest('action=addNew&Name=' + newName + '&Category=' + newCategory + '&Length=' + newLength);
         }
