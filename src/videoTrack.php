@@ -39,6 +39,7 @@ function buildTable($res)
 	echo '</tr>';
 	while($row = $res->fetch_assoc()) //get it one by one
 	{
+		$status = "";
 		echo '<tr id = "'.$row['ID'].'">'; 
 		echo '<td>'.$row['ID'].'</td>';
 		echo '<td class="checkName">'.$row['Name'].'</td>';
@@ -46,13 +47,16 @@ function buildTable($res)
 		echo '<td>'.$row['Length'].'</td>';
 		if($row['Rent'] == "0")
 		{
+			$status = "check out";
 			echo '<td>available</td>';
 		}
 		else 
 		{
+			$status = "check in";
 			echo '<td>check out</td>';
 		}
-		echo '<td><button type="button" id="'.$row['ID'].'" onclick="deleteRow(this.id)">DELETE</button></td>';
+		echo '<td><button type="button" onclick="deleteRow(this.parentNode.id)">DELETE</button></td>';
+		echo '<td><button type="button" class=changeRent onclick="changeRent(this)">'.$status.'</button></td>';
 		echo '</tr>';
 	
 	}
@@ -88,6 +92,19 @@ function deleteOne()
 	init();
 }
 
+function changeRent()
+{
+	global $mysqli,$table;
+	$changeRentID =$_GET['id'];
+	$status =$_GET['Rent'];
+	$all = $mysqli->prepare("UPDATE $table
+SET Rent = $status
+WHERE ID=$changeRentID;");
+	$all->execute();
+	init();
+	
+}
+
 if(isset($_REQUEST['action']))
 {
 	$action = $_REQUEST['action'];
@@ -106,6 +123,10 @@ if(isset($_REQUEST['action']))
 	if($action == 'deleteOne')
 	{
 		deleteOne();
+	}
+	if($action == 'change')
+	{
+		changeRent();
 	}
 }
 

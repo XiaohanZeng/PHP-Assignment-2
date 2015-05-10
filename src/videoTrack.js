@@ -65,6 +65,19 @@ function deleteRow(clicked_id)
 
     makeRequest('action=deleteOne&id='+clicked_id);
 }
+function changeRent(node)
+{
+    var status = node.textContent;
+    if (status == "check out")
+    {
+
+        makeRequest('action=change&id=' + node.parentNode.id + '&Rent=1');
+    }
+    else
+    {      
+        makeRequest('action=change&id=' + node.parentNode.id + '&Rent=0');
+    }
+}
 function makeRequest(statement)
 {
     var xmlhttp;
