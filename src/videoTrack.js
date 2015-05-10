@@ -11,7 +11,7 @@ window.onload = function()
         var newName = document.getElementById('addForm').elements['Name'].value;
         var newCategory = document.getElementById('addForm').elements['Category'].value;
         var newLength = document.getElementById('addForm').elements['Length'].value;
-        if (!isNaN(newLength) && parseInt(newLength) > 0 && newName.length < 255 && newCategory.length < 255 && checkUniqueName(newName))
+        if (!isNaN(newLength) && parseInt(newLength) >= 0 && newName.length < 255 &&newName.length > 0 && newCategory.length < 255 && checkUniqueName(newName) )
         {
             makeRequest('action=addNew&Name=' + newName + '&Category=' + newCategory + '&Length=' + newLength);
         }
@@ -21,9 +21,11 @@ window.onload = function()
             var errorMessage2 = "";
             var errorMessage3 = "";
             var errorMessage4 = "";
-            if (isNaN(newLength) || parseInt(newLength) <= 0)
+            var errorMessage5 = "";
+            var errorMessage6 = "";
+            if (isNaN(newLength))
             {
-                errorMessage1 = "invalid length input";
+                errorMessage1 = " length must be a number";
             }
             if (newName.length >= 255)
             {
@@ -37,7 +39,14 @@ window.onload = function()
             {
                 errorMessage4 = "not unique name";
             }
-            window.alert(errorMessage1 + " " + errorMessage2 + " " + errorMessage3 + " "+errorMessage4);
+            if (newName.length <0) {
+                errorMessage5 = "name is a required field";
+            }
+            if (parseInt(newLength) < 0)
+            {
+                errorMessage6 = " length must be positive";
+            }
+            window.alert(errorMessage1 + " " + errorMessage2 + " " + errorMessage3 + " " + errorMessage4 + " " + errorMessage5 + " " + errorMessage6);
         }
     }
 }
