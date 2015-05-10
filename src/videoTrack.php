@@ -23,6 +23,7 @@ function init()
 	$all = $mysqli->prepare("SELECT * FROM $table");//prepared statment
 	$all->execute();// run the prepared statment,all save object
 	$res = $all->get_result();
+	buildDropdown();
 	buildTable($res);
 }
 
@@ -101,6 +102,19 @@ function changeRent()
 	$all->execute();
 	init();
 	
+}
+function buildDropdown()
+{
+	global $mysqli,$table;
+	$all = $mysqli->prepare("SELECT DISTINCT Category FROM videoTrack");
+	$all->execute();
+	$res = $all->get_result();
+	echo '<select>';
+	while($row = $res->fetch_assoc()) //get it one by one
+	{	
+		echo '<option value="'.$row['Category'].'">'.$row['Category'].'</option>';
+	}
+	echo '</select>';
 }
 
 if(isset($_REQUEST['action']))
