@@ -1,0 +1,15 @@
+Start: Thrusday, 7 May 2015 22:00:00 -0800
+End: Thrusday, 7 May 2015 23:30:00 -0800
+Tasks: Starting readind the requirments after taking all classes and sessions. First commit all reqiured files.
+
+Start: Fri, 8 May 13:00:00 -0800
+End: Fri, 8 May 18:00:00 -0800
+Tasks: Following the video trying connect each files
+
+Start: Sat, 9 May 9:00:00 -0800
+End: Sat, 9 May 16:00:00 -0800
+Tasks: finish add, delete all, filter, delete each row.
+
+Start: Sun, 10 May 11:00:00 -0800
+End: Sun, 10 May 12:00:00 -0800
+Tasks: Test add , editing all error report pop out.
