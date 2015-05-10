@@ -10,13 +10,28 @@ window.onload = function()
         var newName = document.getElementById('addForm').elements['Name'].value;
         var newCategory = document.getElementById('addForm').elements['Category'].value;
         var newLength = document.getElementById('addForm').elements['Length'].value;
-        if (!isNaN(newLength) && newName.length < 255 && newCategory.length < 255)
+        if (!isNaN(newLength) && parseInt(newLength) >0  && newName.length < 255 && newCategory.length < 255)
         {
             makeRequest('action=addNew&Name=' + newName + '&Category=' + newCategory + '&Length=' + newLength);
         }
         else
         {
-            window.alert("invalid input.");
+            var errorMessage1;
+            var errorMessage2;
+            var errorMessage3;
+            if (isNaN(newLength) || parseInt(newLength) <= 0)
+            {
+                errorMessage1 = "invalid length input"
+            }
+            if (newName.length >= 255)
+            {
+                errorMessage2 = "invalid name input"
+            }
+            if (newCategory.length >= 255)
+            {
+                errorMessage3 = "invalid category input"
+            }
+            window.alert(errorMessage1+errorMessage2+errorMessage3)
         }
     }
 }
