@@ -109,12 +109,35 @@ function buildDropdown()
 	$all = $mysqli->prepare("SELECT DISTINCT Category FROM videoTrack");
 	$all->execute();
 	$res = $all->get_result();
-	echo '<select>';
+	echo '<br>';
+	echo '<select id="dropDown">';
+	echo '<option value="allCategory">All Category</option>';
 	while($row = $res->fetch_assoc()) //get it one by one
 	{	
 		echo '<option value="'.$row['Category'].'">'.$row['Category'].'</option>';
 	}
 	echo '</select>';
+	
+	echo '<button type="button" onclick="filterVideo()">Filter</button>';
+	echo '<br>';
+}
+function filterCate()
+{
+	global $mysqli,$table;
+	$category = $_GET['Category'];
+	if($category == "allCategory")
+	{
+			init();
+	}
+	else
+	{
+		$all = $mysqli->prepare("SELECT * FROM $table WHERE Category=$category");	
+		$all->execute();
+		$res = $all->get_result();
+		buildDropdown();
+		buildTable($res);
+		
+	}
 }
 
 if(isset($_REQUEST['action']))
@@ -139,6 +162,10 @@ if(isset($_REQUEST['action']))
 	if($action == 'change')
 	{
 		changeRent();
+	}
+	if($action == 'filter')
+	{
+		filterCate();
 	}
 }
 

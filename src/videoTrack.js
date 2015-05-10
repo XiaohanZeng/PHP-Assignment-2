@@ -78,6 +78,12 @@ function changeRent(node)
         makeRequest('action=change&id=' + node.parentNode.parentNode.id + '&Rent=0');
     }
 }
+function filterVideo()
+{
+    var selectNode = document.getElementById("dropDown");
+    var selectCate = selectNode.options[selectNode.selectedIndex].value;
+    makeRequest('action=filter&Category=' + selectCate);
+}
 function makeRequest(statement)
 {
     var xmlhttp;
