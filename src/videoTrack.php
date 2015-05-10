@@ -40,7 +40,7 @@ function buildTable($res)
 	{
 		echo '<tr id = "'.$row['ID'].'">'; 
 		echo '<td>'.$row['ID'].'</td>';
-		echo '<td>'.$row['Name'].'</td>';
+		echo '<td class="checkName">'.$row['Name'].'</td>';
 		echo '<td>'.$row['Category'].'</td>';
 		echo '<td>'.$row['Length'].'</td>';
 		echo '<td>'.$row['Rent'].'</td>';

@@ -10,7 +10,7 @@ window.onload = function()
         var newName = document.getElementById('addForm').elements['Name'].value;
         var newCategory = document.getElementById('addForm').elements['Category'].value;
         var newLength = document.getElementById('addForm').elements['Length'].value;
-        if (!isNaN(newLength) && parseInt(newLength) >0  && newName.length < 255 && newCategory.length < 255)
+        if (!isNaN(newLength) && parseInt(newLength) > 0 && newName.length < 255 && newCategory.length < 255 && checkUniqueName(newName))
         {
             makeRequest('action=addNew&Name=' + newName + '&Category=' + newCategory + '&Length=' + newLength);
         }
@@ -19,19 +19,24 @@ window.onload = function()
             var errorMessage1 = "";
             var errorMessage2 = "";
             var errorMessage3 = "";
+            var errorMessage4 = "";
             if (isNaN(newLength) || parseInt(newLength) <= 0)
             {
-                errorMessage1 = "invalid length input"
+                errorMessage1 = "invalid length input";
             }
             if (newName.length >= 255)
             {
-                errorMessage2 = "invalid name input"
+                errorMessage2 = "invalid name input";
             }
             if (newCategory.length >= 255)
             {
-                errorMessage3 = "invalid category input"
+                errorMessage3 = "invalid category input";
             }
-            window.alert(errorMessage1+errorMessage2+errorMessage3)
+            if (!checkUniqueName(newName))
+            {
+                errorMessage4 = "not unique name";
+            }
+            window.alert(errorMessage1 + " " + errorMessage2 + " " + errorMessage3 + " "+errorMessage4);
         }
     }
 }
@@ -42,6 +47,18 @@ window.onload = function()
   getbuttiByID
   request -> PHP id delete row with this ID
 }*/
+
+function checkUniqueName(newName)
+{
+    var existName = document.getElementsByClassName("checkName");
+    var length = existName.length;
+    for(var i = 0; i < length; i++)
+    {
+        if (newName == existName[i].textContent)
+            return false;
+    }
+    return true;
+}
 function makeRequest(statement)
 {
     var xmlhttp;
