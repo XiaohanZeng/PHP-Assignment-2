@@ -43,7 +43,15 @@ function buildTable($res)
 		echo '<td class="checkName">'.$row['Name'].'</td>';
 		echo '<td>'.$row['Category'].'</td>';
 		echo '<td>'.$row['Length'].'</td>';
-		echo '<td>'.$row['Rent'].'</td>';
+		if($row['Rent'] == "0")
+		{
+			echo '<td>available</td>';
+		}
+		else 
+		{
+			echo '<td>check out</td>';
+		}
+		echo '<button type="button" id="'.$row['ID'].'">DELETE</button>';
 		echo '</tr>';
 	
 	}
