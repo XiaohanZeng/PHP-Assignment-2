@@ -131,7 +131,7 @@ function filterCate()
 	}
 	else
 	{
-		$all = $mysqli->prepare("SELECT * FROM $table WHERE Category=$category");	
+		$all = $mysqli->prepare("SELECT * FROM $table WHERE Category='$category'");	
 		$all->execute();
 		$res = $all->get_result();
 		buildDropdown();
